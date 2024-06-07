@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import toggleShowPassword from '/public/images/show-password.svg';
 import { submitLogin } from '@/services/submitLogin';
+import { Button } from '@/components/Button/Button';
+import { Input } from '@/components/Input/Input';
 
 export function LoginForm() {
   const router = useRouter();
@@ -44,12 +46,7 @@ export function LoginForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Login</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
-            type="email"
-            className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
-            placeholder="E-mail"
-            name="email"
-          />
+          <Input type="email" placeholder="E-mail" name="email" />
         </div>
         {/* {errors.email && (
           <span className="text-red-600 text-xs">{errors.email.message}</span>
@@ -58,13 +55,12 @@ export function LoginForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Senha</div>
         <div className="border border-[#1b1b1b] rounded-[5px] flex py-2 px-1">
-          <input
+          <Input
             type={showPassword ? 'text' : 'password'}
-            className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             placeholder="Senha"
             name="password"
           />
-          <button
+          <Button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
             className="px-1"
@@ -73,7 +69,7 @@ export function LoginForm() {
               src={toggleShowPassword}
               alt="Ícone de olho para mostrar e esconder a senha"
             />
-          </button>
+          </Button>
         </div>
         {/* {errors.password && (
           <span className="text-red-600 text-xs">
@@ -83,7 +79,7 @@ export function LoginForm() {
       </label>
       <div className="flex justify-between px-1">
         <label className="flex items-center justify-center relative">
-          <input
+          <Input
             className="appearance-none w-5 h-5 rounded-full border-2 border-custom-purple mr-1"
             type="checkbox"
             checked={remember}
@@ -99,17 +95,9 @@ export function LoginForm() {
         </Link>
       </div>
 
-      <button
-        className={`flex self-center font-medium items-center justify-center  rounded-[45px] px-11 py-3 mt-16 ${
-          isButtonDisabled
-            ? 'bg-transparent border-2 border-[#B2B2B2] text-[#B2B2B2]'
-            : 'bg-custom-purple text-white'
-        }`}
-        type="submit"
-        disabled={isButtonDisabled}
-      >
+      <Button type="submit" disabled={isButtonDisabled} loading={loading}>
         {loading ? 'Enviando...' : 'Continuar'}
-      </button>
+      </Button>
     </form>
   );
 }
