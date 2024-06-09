@@ -3,6 +3,8 @@ import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { submitLogin } from '@/services/submitLogin';
 import { submitRegister } from '../submitRegister';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +48,7 @@ export function RegisterForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Nome</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="text"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="name"
@@ -58,7 +60,7 @@ export function RegisterForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Sobrenome</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="text"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="lastname"
@@ -70,7 +72,7 @@ export function RegisterForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Email</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="email"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="email"
@@ -82,7 +84,7 @@ export function RegisterForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Telefone</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="text"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="phone"
@@ -94,7 +96,7 @@ export function RegisterForm() {
       <label>
         <div className="text-custom-purple text-sm font-medium">Senha</div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="password"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="password"
@@ -108,7 +110,7 @@ export function RegisterForm() {
           Confirmar senha
         </div>
         <div className="border border-[#1b1b1b] rounded-[5px] py-2 px-1">
-          <input
+          <Input
             type="password"
             className="w-full outline-0 text-[#292929] font-medium placeholder:text-[#BFBFBF]"
             name="password-confirm"
@@ -118,7 +120,7 @@ export function RegisterForm() {
         </div>
       </label>
       <label className="flex items-center relative">
-        <input
+        <Input
           className="appearance-none w-5 h-5 rounded-full border-2 border-custom-purple mr-1"
           type="checkbox"
           checked={remember}
@@ -129,17 +131,14 @@ export function RegisterForm() {
         )}
         <span>Eu concordo com a politica de privacidade</span>
       </label>
-      <button
-        className={`flex self-center font-medium items-center justify-center  rounded-[45px] px-11 py-3 mt-16 ${
-          isLoading
-            ? 'bg-transparent border-2 border-[#B2B2B2] text-[#B2B2B2]'
-            : 'bg-custom-purple text-white'
-        }`}
+      <Button
+      className='flex self-center font-medium items-center justify-center  rounded-[45px] px-11 py-3 mt-16'
         type="submit"
-        disabled={isLoading}
+        disabled={!!isLoading}
+        isLoading={!!isLoading}
       >
         {isLoading ? 'Enviando...' : 'Continuar'}
-      </button>
+      </Button>
     </form>
   );
 }
