@@ -15,6 +15,7 @@ export const Button = forwardRef(function Button(
     bgColor = 'custom-purple',
     textColor = 'white',
     className,
+    children,
     ...props
   }: ButtonProps,
   ref: Ref<HTMLButtonElement>
@@ -27,6 +28,7 @@ export const Button = forwardRef(function Button(
           isLoading && 'bg-transparent border-2 border-[#B2B2B2] text-[#B2B2B2]'
         }`, className)}
 >
+  {children}
 </button >
   );
 });
