@@ -9,11 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
-  BreadcrumbPage,
 } from '@/components/Breadcrump';
-import { Home } from 'lucide-react';
 
 export function DefaultScreen() {
   const { nextStep, previousStep, resetPetNewsValues } =
@@ -63,12 +59,12 @@ export function DefaultScreen() {
       <div className="mt-auto w-full flex justify-around">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple"
+          className="border-custom-purple text-custom-purple min-w-[45%]"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep}>Continuar</Button>
+        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
       </div>
     </>
   );

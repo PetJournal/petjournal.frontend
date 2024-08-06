@@ -3,7 +3,7 @@ import { Button } from '@/components/Button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ToggleGroup';
 import { IconCat } from '@/components/icons/IconCat';
 import { IconDog } from '@/components/icons/IconDog';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { PetRegisterContext } from '../context/PetRegisterContext';
 import { usePetRegisterSteps } from './usePetRegisterSteps';
 
@@ -13,7 +13,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
 } from '@/components/Breadcrump';
-import { Home } from 'lucide-react';
 import Image from 'next/image';
 
 export function Specie() {
@@ -99,12 +98,12 @@ export function Specie() {
       <div className="mt-auto w-full flex justify-around">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple"
+          className="border-custom-purple text-custom-purple min-w-[45%]"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep}>Continuar</Button>
+        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
       </div>
     </>
   );

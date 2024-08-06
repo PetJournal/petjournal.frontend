@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/Button';
-import { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { PetRegisterContext } from '../context/PetRegisterContext';
 import { usePetRegisterSteps } from './usePetRegisterSteps';
 import {
@@ -20,7 +20,6 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
 } from '@/components/Breadcrump';
-import { Home } from 'lucide-react';
 
 export function SizeAndBreed() {
   const { newPet, breeds, sizes } = useContext(PetRegisterContext);
@@ -162,12 +161,12 @@ export function SizeAndBreed() {
       <div className="mt-auto w-full flex justify-around z-40">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple"
+          className="border-custom-purple text-custom-purple min-w-[45%]"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep}>Continuar</Button>
+        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
       </div>
     </>
   );
