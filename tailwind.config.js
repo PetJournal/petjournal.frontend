@@ -35,8 +35,8 @@ module.exports = {
       colors: {
         custom: {
           blue: '#8093F1',
-          cyan: '#AFD9DB',
-          pink: '#E06197',
+          cyan: '#46D4DB',
+          pink: '#FF61D2',
           purple: '#9A0963',
           'purple-hover': '#6E0046',
         },
