@@ -10,8 +10,7 @@ export function BannerHome() {
       autoplay={{ delay: 4000, disableOnInteraction: false }}
       modules={[Autoplay]}
       slidesPerView={1}
-      autoHeight
-      className="w-full"
+      className="w-full h-52"
     >
       <SwiperSlide className="rounded-lg">
         <Image src="/images/banner-1.png" alt="" width={400} height={280} />
