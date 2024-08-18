@@ -84,7 +84,7 @@ export function NameAndGender() {
       </h3>
 
       <InputControl className="w-full">
-        <span className="text-base text-center ">
+        <span className="text-base text-center font-bold text-neutral-900">
           Qual o nome do seu companheiro?
         </span>
         <label htmlFor="petName" className="text-xs">
@@ -114,14 +114,14 @@ export function NameAndGender() {
         >
           <ToggleGroupItem
             value="M"
-            className="flex flex-col gap-1 w-[120px] h-[120px] p-5 border-2 border-dashed bg-white border-gray-400 rounded-2xl text-gray-700 hover:bg-white hover:border-studio-600 hover:text-gray-700 data-[state=on]:bg-white data-[state=on]:border-solid data-[state=on]:border-studio-600 data-[state=on]:text-gray-700"
+            className="flex flex-col gap-1 w-[120px] h-[120px] p-5 border-2 border-dashed bg-white border-gray-400 rounded-3xl text-gray-700 hover:bg-white hover:border-studio-600 hover:text-gray-700 data-[state=on]:bg-white data-[state=on]:border-solid data-[state=on]:border-studio-600 data-[state=on]:text-gray-700"
           >
             <IconMale size={60} />
             <span className="text-sm">Macho</span>
           </ToggleGroupItem>
           <ToggleGroupItem
             value="F"
-            className="flex flex-col gap-1 w-[120px] h-[120px] p-5 border-2 border-dashed bg-white border-gray-400 rounded-2xl text-gray-700 hover:bg-white hover:border-studio-600 hover:text-gray-700 data-[state=on]:bg-white data-[state=on]:border-solid data-[state=on]:border-studio-600 data-[state=on]:text-gray-700"
+            className="flex flex-col gap-1 w-[120px] h-[120px] p-5 border-2 border-dashed bg-white border-gray-400 rounded-3xl text-gray-700 hover:bg-white hover:border-studio-600 hover:text-gray-700 data-[state=on]:bg-white data-[state=on]:border-solid data-[state=on]:border-studio-600 data-[state=on]:text-gray-700"
           >
             <IconFemale size={60} />
             <span className="text-sm">Fêmea</span>
