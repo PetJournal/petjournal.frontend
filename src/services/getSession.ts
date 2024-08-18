@@ -7,7 +7,7 @@ export async function getSession() {
     const accessToken = getToken();
 
     if (!accessToken) {
-      throw 'Nenhum usuário autenticado...';
+      throw new Error('Nenhum usuário autenticado...');
     }
 
     const { error, user } = await getUser();
