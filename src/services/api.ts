@@ -5,7 +5,7 @@ export async function api(
   endPoint: RequestInfo | URL,
   options?: RequestInit | undefined,
 ) {
-  const BASE_URL = 'https://petjournal-api-z9gs.onrender.com/api';
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL;
   const accessToken = getToken();
   const fetchOptions = {
     method: 'GET',

@@ -13,7 +13,7 @@ export function BottomTab() {
   }
 
   return (
-    <div className="fixed z-10 bottom-0 left-0 bg-custom-purple w-full p-4">
+    <div className="fixed z-10 bottom-0 left-0 bg-studio-600 w-full p-4">
       <ul className="flex w-full justify-around">
         <li>
           <BottomTabItem label="Home" to="/" />

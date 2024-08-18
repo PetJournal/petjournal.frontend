@@ -62,7 +62,13 @@ export function DateBirth() {
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <div className="flex items-center gap-2">
-              <Image src="/images/home.svg" height={15} width={13} alt='Home Icon' /> Cadastro Pet
+                <Image
+                  src="/images/home.svg"
+                  height={15}
+                  width={13}
+                  alt="Home Icon"
+                />{' '}
+                Cadastro Pet
               </div>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -96,12 +102,13 @@ export function DateBirth() {
       </p>
 
       <InputControl className="w-full">
-        <Label variant="secondary" htmlFor="petName" className="text-base">
+        <Label variant="secondary" htmlFor="dateOfBirth" className="text-base">
           Data de nascimento
         </Label>
         <Input
           type="date"
-          name="petName"
+          name="dateOfBirth"
+          id="dateOfBirth"
           placeholder="Nome de seu Pet"
           variant="secondary"
           className="bg-white"
@@ -121,12 +128,14 @@ export function DateBirth() {
       <div className="mt-auto w-full flex justify-around">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple min-w-[45%]"
+          className="font-bold"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
+        <Button className="font-bold" onClick={handleClickNextStep}>
+          Continuar
+        </Button>
       </div>
     </>
   );

@@ -31,7 +31,7 @@ export function BottomTabItem({ to, label }: BottomTabItemProps) {
       href={to}
       className={cn(
         buttonStyle,
-        `${active ? 'text-custom-blue' : 'text-white'}`,
+        `${active ? 'text-custom-cyan' : 'text-white'}`,
       )}
     >
       <Icon size={24} active={active} />

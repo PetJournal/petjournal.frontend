@@ -57,13 +57,19 @@ export function Specie() {
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <div className="flex items-center gap-2">
-              <Image src="/images/home-active.svg" height={15} width={13} alt='Home Icon' /> Cadastro Pet
+                <Image
+                  src="/images/home-active.svg"
+                  height={15}
+                  width={13}
+                  alt="Home Icon"
+                />{' '}
+                Cadastro Pet
               </div>
             </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h3 className="text-xl font-medium text-studio-600 w-full text-center">
+      <h3 className="text-xl font-bold text-studio-600 w-full text-center">
         Olá <span className="text-custom-pink">{user?.firstName}</span>,
         gostaríamos de saber qual a espécie do seu Pet:
       </h3>
@@ -75,14 +81,14 @@ export function Specie() {
       >
         <ToggleGroupItem
           value="dog"
-          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-custom-purple hover:text-custom-purple data-[state=on]:bg-transparent data-[state=on]:border-custom-purple data-[state=on]:text-custom-purple focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
+          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-studio-600 hover:text-studio-600 data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
         >
           <IconDog size={60} />
           <span>Cachorro</span>
         </ToggleGroupItem>
         <ToggleGroupItem
           value="cat"
-          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-custom-purple hover:text-custom-purple data-[state=on]:bg-transparent data-[state=on]:border-custom-purple data-[state=on]:text-custom-purple focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
+          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-studio-600 hover:text-studio-600 data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
         >
           <IconCat size={60} />
           <span>Gato</span>
@@ -98,12 +104,14 @@ export function Specie() {
       <div className="mt-auto w-full flex justify-around">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple min-w-[45%]"
+          className="font-bold"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
+        <Button className="font-bold" onClick={handleClickNextStep}>
+          Continuar
+        </Button>
       </div>
     </>
   );

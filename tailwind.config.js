@@ -10,7 +10,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      fredoka: 'var(--font-fredoka)',
+      quicksand: 'var(--font-quicksand)',
     },
     extend: {
       keyframes: {
@@ -35,8 +35,8 @@ module.exports = {
       colors: {
         custom: {
           blue: '#8093F1',
-          cyan: '#AFD9DB',
-          pink: '#E06197',
+          cyan: '#46D4DB',
+          pink: '#FF61D2',
           purple: '#9A0963',
           'purple-hover': '#6E0046',
         },
@@ -56,7 +56,7 @@ module.exports = {
       },
       boxShadow: {
         'custom-select': '0px 0px 4px 0px #8733FF33',
-      }
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

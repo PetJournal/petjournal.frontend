@@ -31,7 +31,13 @@ export function DefaultScreen() {
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <div className="flex items-center gap-2">
-              <Image src="/images/home-active.svg" height={15} width={13} alt='Home Icon' /> Cadastro Pet
+                <Image
+                  src="/images/home-active.svg"
+                  height={15}
+                  width={13}
+                  alt="Home Icon"
+                />{' '}
+                Cadastro Pet
               </div>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -59,12 +65,14 @@ export function DefaultScreen() {
       <div className="mt-auto w-full flex justify-around">
         <Button
           variant="outline"
-          className="border-custom-purple text-custom-purple min-w-[45%]"
+          className="font-bold"
           onClick={handleClickPreviousStep}
         >
           Voltar
         </Button>
-        <Button onClick={handleClickNextStep} className='min-w-[45%]'>Continuar</Button>
+        <Button className="font-bold" onClick={handleClickNextStep}>
+          Continuar
+        </Button>
       </div>
     </>
   );

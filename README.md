@@ -21,7 +21,7 @@ git clone https://github.com/PetJournal/petjournal.web.git
 2. Instale as dependências do projeto com o comando:
 
 ```bash
-yarn
+npm install
 ```
 
 3. Acesse a branch de desenvolvimento com o comando:
@@ -30,13 +30,15 @@ yarn
 git checkout develop
 ```
 
-4. Rode a aplicação com o comando:
+4. Adicione as variáveis de ambiente: duplique o arquivo `.env.exemple`, renomei para `.env.local` e altere seus respectivos valores.
+
+5. Rode a aplicação com o comando:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
-5. Acesse as rotas disponíveis seguindo a estrutura `localhost:3000/<rota>`
+6. Acesse as rotas disponíveis seguindo a estrutura `localhost:3000`
 
    Rotas disponíveis:
 
@@ -45,5 +47,6 @@ yarn dev
    - Login - `localhost:3000/login`
    - Change Password - `localhost:3000/change-password`
    - Forgot Password - `localhost:3000/forgot-password`
+   - Waiting Code - `localhost:3000/waiting-code`
    - Pet Register - `localhost:3000/pet-register`
-   - Species - `localhost:3000/pet-register/species`
+   - Lista de Pets - `localhost:3000/pets`
