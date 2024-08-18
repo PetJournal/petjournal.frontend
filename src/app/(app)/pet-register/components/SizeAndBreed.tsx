@@ -20,6 +20,7 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
 } from '@/components/Breadcrump';
+import { SearchInput } from '@/components/Fields/SearchInput';
 
 export function SizeAndBreed() {
   const { newPet, breeds, sizes } = useContext(PetRegisterContext);
@@ -54,7 +55,6 @@ export function SizeAndBreed() {
 
   function handleOnChangeBreed(value: string) {
     setError(false);
-
     setPet((state) => ({
       ...state,
       breedName: value,
@@ -106,25 +106,19 @@ export function SizeAndBreed() {
             </Select>
           </label>
 
-          {/* TODO: Adicionar a opção de outros */}
           <label className="flex flex-col gap-1">
             <span>Raça</span>
-            <Select onValueChange={handleOnChangeBreed}>
-              <SelectTrigger>
-                <SelectValue placeholder="Porte do seu pet" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <ScrollArea className="h-[150px] mr-1">
-                    {breeds.map((breed) => (
-                      <SelectItem key={breed.id} value={breed.name}>
-                        {breed.name}
-                      </SelectItem>
-                    ))}
-                  </ScrollArea>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <SearchInput
+              items={breeds.map((breed) => {
+                return {
+                  label: breed.name,
+                  value: breed.name,
+                };
+              })}
+              onChange={handleOnChangeBreed}
+              value={pet.breedName}
+              placeholder="Porte do seu pet"
+            />
           </label>
         </div>
       )}
