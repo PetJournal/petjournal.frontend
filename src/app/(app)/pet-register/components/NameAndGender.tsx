@@ -3,7 +3,7 @@ import { Button } from '@/components/Button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ToggleGroup';
 import { IconFemale } from '@/components/icons/IconFemale';
 import { IconMale } from '@/components/icons/IconMale';
-import { ChangeEvent, useContext } from 'react';
+import { useContext } from 'react';
 import { PetRegisterContext } from '../context/PetRegisterContext';
 import { usePetRegisterSteps } from './usePetRegisterSteps';
 import { species } from '@/utils/species';
@@ -16,46 +16,39 @@ import {
   BreadcrumbLink,
 } from '@/components/Breadcrump';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import { NameAndGenderProps, nameAndGenderSchema } from '@/schemas/PetRegister/NameAndGender';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Label } from '@/components/Label';
+import { InputMessage } from '@/components/Fields/InputMessage';
 
 export function NameAndGender() {
   const { newPet } = useContext(PetRegisterContext);
-  const { error, clickNextStep, clickPreviousStep, setError, pet, setPet } =
-    usePetRegisterSteps();
+  const { clickNextStep, clickPreviousStep, pet, setPet } = usePetRegisterSteps();
 
   const specieName = species[pet.specieName as keyof typeof species];
 
-  function handleClickNextStep() {
-    if (!pet.gender || !pet.petName) {
-      clickNextStep(null);
-      return;
-    }
-    clickNextStep({
-      ...newPet,
-      gender: pet.gender,
-      petName: pet.petName,
-    });
-  }
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<NameAndGenderProps>({
+    resolver: zodResolver(nameAndGenderSchema),
+    criteriaMode: 'firstError',
+    reValidateMode: 'onChange',
+    mode: 'onBlur',
+  });
 
   function handleClickPreviousStep() {
     clickPreviousStep();
   }
 
-  function handleOnChangePetName(evt: ChangeEvent<HTMLInputElement>) {
-    setError(false);
-    const { value } = evt.target;
-
-    setPet((state) => ({
-      ...state,
-      petName: value,
-    }));
-  }
-
-  function handleOnChangeGender(value: string) {
-    setError(false);
-    setPet((state) => ({
-      ...state,
-      gender: value,
-    }));
+  function handleClickNextStep(data: NameAndGenderProps) {
+    clickNextStep({
+      ...newPet,
+      gender: data.gender,
+      petName: data.petName,
+    });
   }
 
   return (
@@ -79,29 +72,31 @@ export function NameAndGender() {
       </Breadcrumb>
       <h3 className="text-xl font-bold text-left text-studio-600 w-full">
         <span className="block mb-4">Uau!</span>
-        Ficamos muito felizes em receber mais um {specieName} em nossa
-        comunidade!
+        Ficamos muito felizes em receber mais um {specieName} em nossa comunidade!
       </h3>
 
       <InputControl className="w-full">
         <span className="text-base text-center font-bold text-neutral-900">
           Qual o nome do seu companheiro?
         </span>
-        <label htmlFor="petName" className="text-xs">
+        <Label htmlFor="petName" className="text-xs">
           Nome:
-        </label>
+        </Label>
         <Input
           type="text"
-          name="petName"
           id="petName"
           placeholder="Nome de seu Pet"
           variant="secondary"
           className="bg-white placeholder:text-sm"
           defaultValue={pet.petName}
-          onChange={handleOnChangePetName}
+          {...register('petName')}
           required
         />
-        <span className="text-gray-400 text-xs">*Campo obrigatório</span>
+        {errors.petName ? (
+          <InputMessage variant="error" message={errors.petName.message} />
+        ) : (
+          <InputMessage variant="warning" message="*Campo obrigatório" />
+        )}
       </InputControl>
 
       <div className="flex flex-col gap-2 ">
@@ -109,7 +104,7 @@ export function NameAndGender() {
         <ToggleGroup
           type="single"
           defaultValue={pet.gender}
-          onValueChange={handleOnChangeGender}
+          {...register('gender')}
           className="gap-8"
         >
           <ToggleGroupItem
@@ -127,14 +122,12 @@ export function NameAndGender() {
             <span className="text-sm">Fêmea</span>
           </ToggleGroupItem>
         </ToggleGroup>
-        <span className="text-gray-400 text-xs">*Campo obrigatório</span>
+        {errors.gender ? (
+          <InputMessage variant="error" message={errors.gender.message} />
+        ) : (
+          <InputMessage variant="warning" message="*Campo obrigatório" />
+        )}
       </div>
-
-      {error && (
-        <span className="text-red-400 text-sm text-center">
-          Preencha todas as informações...
-        </span>
-      )}
 
       <div className="mt-auto w-full flex justify-around">
         <Button
@@ -144,7 +137,10 @@ export function NameAndGender() {
         >
           Voltar
         </Button>
-        <Button className="font-bold" onClick={handleClickNextStep}>
+        <Button
+          className="font-bold"
+          onClick={handleSubmit(handleClickNextStep)}
+        >
           Continuar
         </Button>
       </div>

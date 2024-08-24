@@ -81,17 +81,17 @@ export function Specie() {
       >
         <ToggleGroupItem
           value="dog"
-          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-studio-600 hover:text-studio-600 data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
+          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 data-[state=off]:border-gray-400 data-[state=off]:text-gray-400"
         >
           <IconDog size={60} />
-          <span>Cachorro</span>
+          <span className='font-semibold'>Cachorro</span>
         </ToggleGroupItem>
         <ToggleGroupItem
           value="cat"
-          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent hover:border-studio-600 hover:text-studio-600 data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 focus:border-sky-400 focus-visible:border-sky-400 focus:text-gray-400"
+          className="flex flex-col gap-1 w-[100px] h-[100px] p-5 border-2 border-gray-400 text-gray-400 hover:bg-transparent data-[state=on]:bg-transparent data-[state=on]:border-studio-600 data-[state=on]:text-studio-600 data-[state=off]:border-gray-400 data-[state=off]:text-gray-400"
         >
           <IconCat size={60} />
-          <span>Gato</span>
+          <span className='font-semibold'>Gato</span>
         </ToggleGroupItem>
       </ToggleGroup>
 
