@@ -2,7 +2,7 @@ import { cn } from '@/utils/twmerge';
 import { ButtonHTMLAttributes, Ref, forwardRef } from 'react';
 
 const buttonStyleBase =
-  'flex self-center font-medium items-center justify-center rounded-[45px] px-11 py-3';
+  'flex self-center font-medium items-center justify-center px-11 py-3 rounded-2xl';
 
 const buttonVariants = {
   variant: {

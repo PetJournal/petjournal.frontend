@@ -9,11 +9,7 @@ import {
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
-  BreadcrumbPage,
 } from '@/components/Breadcrump';
-import { Home } from 'lucide-react';
 
 export function DefaultScreen() {
   const { nextStep, previousStep, resetPetNewsValues } =

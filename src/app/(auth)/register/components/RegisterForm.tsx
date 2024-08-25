@@ -61,9 +61,9 @@ export function RegisterForm() {
       });
       if (errorLogin) throw errorLogin;
 
-      const { session } = await getSession();
-      if (!session) {
-        throw new Error('Usuário não autenticado...');
+      const { session, error: errorSession } = await getSession();
+      if (errorSession || !session) {
+        throw new Error(errorSession ?? 'Usuário não autenticado...');
       }
 
       const { user } = session;

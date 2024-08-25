@@ -9,7 +9,7 @@ export async function getUser() {
 
     const { error, firstName, lastName } = await res.json();
     if (error) {
-      throw new Error('Usuário não autenticado...');
+      throw new Error(error);
     }
     const user: User = { firstName, lastName };
 

@@ -22,7 +22,7 @@ interface SearchInputItems {
 }
 
 const searchVariants = {
-  normal: `w-full h-10 p-2 border border-[#B2B2B2] border-dashed outline-none rounded-2xl bg-white text-[#2E2E2E] focus:outline-none focus:border-solid focus:border-[#B78AF7] focus:shadow-custom-select transition-all`,
+  normal: `w-full h-10 p-2 text-sm border border-[#B2B2B2] border-dashed outline-none rounded-2xl bg-white focus:outline-none focus:border-solid focus:border-[#B78AF7] focus:shadow-custom-select transition-all`,
   error: `border-[#FF917A] border-solid`,
 };
 

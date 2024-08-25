@@ -1,6 +1,6 @@
 'use client';
 import { useContext, useEffect, useState } from 'react';
-import { DefaultScreen } from './DefaultScren';
+import { DefaultScreen } from './DefaultScreen';
 import { Specie } from './Specie';
 import { NameAndGender } from './NameAndGender';
 import { SizeAndBreed } from './SizeAndBreed';
