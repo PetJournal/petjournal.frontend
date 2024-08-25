@@ -24,8 +24,6 @@ export function DefaultScreen() {
     previousStep();
   }
 
-  console.log(user)
-
   return (
     <>
       <Breadcrumb>

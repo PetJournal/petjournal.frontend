@@ -109,7 +109,11 @@ export function Specie() {
         >
           Voltar
         </Button>
-        <Button className="font-bold" onClick={handleClickNextStep}>
+        <Button
+          className="font-bold"
+          onClick={handleClickNextStep}
+          disabled={error}
+        >
           Continuar
         </Button>
       </div>

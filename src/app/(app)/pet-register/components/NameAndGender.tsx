@@ -32,6 +32,9 @@ export function NameAndGender() {
     handleSubmit,
     register,
     formState: { errors },
+    setValue,
+    getValues,
+    clearErrors,
   } = useForm<NameAndGenderProps>({
     resolver: zodResolver(nameAndGenderSchema),
     criteriaMode: 'firstError',
@@ -49,6 +52,11 @@ export function NameAndGender() {
       gender: data.gender,
       petName: data.petName,
     });
+  }
+
+  function handleGenderChange(value: string) {
+    setValue('gender', value, { shouldValidate: true });
+    clearErrors('gender')
   }
 
   return (
@@ -88,14 +96,12 @@ export function NameAndGender() {
           placeholder="Nome de seu Pet"
           variant="secondary"
           className="bg-white placeholder:text-sm"
-          defaultValue={pet.petName}
+          defaultValue={pet?.petName}
           {...register('petName')}
           required
         />
-        {errors.petName ? (
+        {errors?.petName && (
           <InputMessage variant="error" message={errors.petName.message} />
-        ) : (
-          <InputMessage variant="warning" message="*Campo obrigatório" />
         )}
       </InputControl>
 
@@ -103,8 +109,8 @@ export function NameAndGender() {
         <span className="text-center text-base">Qual o sexo de seu Pet?</span>
         <ToggleGroup
           type="single"
-          defaultValue={pet.gender}
-          {...register('gender')}
+          defaultValue={getValues('gender')}
+          onValueChange={handleGenderChange}
           className="gap-8"
         >
           <ToggleGroupItem
@@ -122,10 +128,8 @@ export function NameAndGender() {
             <span className="text-sm">Fêmea</span>
           </ToggleGroupItem>
         </ToggleGroup>
-        {errors.gender ? (
+        {errors?.gender && (
           <InputMessage variant="error" message={errors.gender.message} />
-        ) : (
-          <InputMessage variant="warning" message="*Campo obrigatório" />
         )}
       </div>
 
@@ -140,6 +144,7 @@ export function NameAndGender() {
         <Button
           className="font-bold"
           onClick={handleSubmit(handleClickNextStep)}
+          disabled={!getValues('petName') || !getValues('gender')}
         >
           Continuar
         </Button>

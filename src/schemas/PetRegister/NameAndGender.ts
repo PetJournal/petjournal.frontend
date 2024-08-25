@@ -7,7 +7,7 @@ export const nameAndGenderSchema = z.object({
     .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/, {
       message: "*O nome fornecido deve ter entre 2 e 30 caracteres, não são permitidos caracteres especiais, nem números. Por favor, insira um nome válido.",
     }),
-  gender: z.string(),
+  gender: z.string({message: '* Campo obrigatório.'})
 });
 
 export type NameAndGenderProps = z.infer<typeof nameAndGenderSchema>;
